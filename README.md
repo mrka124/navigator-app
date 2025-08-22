@@ -49,13 +49,24 @@ Fleetbase Navigator is an open source navigation and order management app for dr
 
 Installation and setup is fairly quick, all you need is your Fleetbase API Key, and a few commands and your app will be up and running in minutes. Follow the directions below to get started.
 
+**Required version:**
+```
+Node: v20.19.4
+Yarn: 1.22.22
+NPM: 10.8.2
+Pod: 1.16.2
+Ruby: ruby 3.3.9 (2025-07-24 revision f5c772fc7c) [arm64-darwin24]
+xcodebuild: Xcode 16.4; Build version 16F6
+Bundler version 2.7.1
+```
+
 Run the commands below; first clone the project, use npm or yarn to install the dependencies, then run `npx pod-install` to install the iOS dependencies. Lastly, create a `.env` file to configure the app.
 
 ```
 git clone git@github.com:fleetbase/navigator-app.git
 cd navigator-app
 yarn
-yarn pod:install
+cd ios && RUBYOPT='-rlogger -W:no-deprecated' RCT_NEW_ARCH_ENABLED=1 bundle exec pod install --repo-update
 touch .env
 ```
 
